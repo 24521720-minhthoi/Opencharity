@@ -1,0 +1,187 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id             String          @id @default(cuid())
+  email          String          @unique
+  passwordHash   String
+  name           String
+  phone          String?
+  avatarUrl      String?
+  role           String          @default("DONOR")
+  status         String          @default("ACTIVE")
+  organizationId String?
+  organization   Organization?   @relation(fields: [organizationId], references: [id])
+  donations      Donation[]
+  savedCampaigns SavedCampaign[]
+  notifications  Notification[]
+  sessions       Session[]
+  auditLogs      AuditLog[]      @relation("ActorAuditLogs")
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+}
+
+model Organization {
+  id                 String             @id @default(cuid())
+  name               String
+  slug               String             @unique
+  type               String
+  verificationStatus String             @default("PENDING")
+  taxCode            String?
+  representative     String
+  email              String
+  phone              String?
+  location           String
+  mission            String
+  transparencyScore  Int                @default(70)
+  website            String?
+  users              User[]
+  campaigns          Campaign[]
+  partners           Partner[]
+  createdAt          DateTime           @default(now())
+  updatedAt          DateTime           @updatedAt
+}
+
+model Category {
+  id          String     @id @default(cuid())
+  name        String
+  slug        String     @unique
+  description String
+  campaigns   Campaign[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Campaign {
+  id                 String           @id @default(cuid())
+  title              String
+  slug               String           @unique
+  summary            String
+  description        String
+  imageUrl           String
+  province           String
+  beneficiary        String
+  targetAmount       Int
+  currentAmount      Int              @default(0)
+  impactMetric       String
+  startDate          DateTime
+  endDate            DateTime
+  status             String           @default("PENDING_REVIEW")
+  transparencyScore  Int              @default(70)
+  fundAllocation     String
+  riskNote           String?
+  organizationId     String
+  organization       Organization     @relation(fields: [organizationId], references: [id])
+  categoryId         String
+  category           Category         @relation(fields: [categoryId], references: [id])
+  updates            CampaignUpdate[]
+  donations          Donation[]
+  savedBy            SavedCampaign[]
+  createdAt          DateTime         @default(now())
+  updatedAt          DateTime         @updatedAt
+}
+
+model CampaignUpdate {
+  id          String       @id @default(cuid())
+  campaignId  String
+  campaign    Campaign     @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  title       String
+  summary     String
+  evidenceUrl String?
+  imageUrl    String?
+  fundUsed    Int          @default(0)
+  status      String       @default("PENDING_REVIEW")
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Donation {
+  id              String          @id @default(cuid())
+  campaignId      String
+  campaign        Campaign        @relation(fields: [campaignId], references: [id])
+  donorId         String
+  donor           User            @relation(fields: [donorId], references: [id])
+  amount          Int
+  message         String?
+  method          String
+  status          String          @default("SUCCESS")
+  transactionCode String          @unique
+  receipt         PaymentReceipt?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+}
+
+model PaymentReceipt {
+  id              String   @id @default(cuid())
+  donationId      String   @unique
+  donation        Donation @relation(fields: [donationId], references: [id], onDelete: Cascade)
+  receiptNumber   String   @unique
+  payerName       String
+  payerEmail      String
+  issuedAt        DateTime @default(now())
+  reconciliation  String
+  createdAt       DateTime @default(now())
+}
+
+model Partner {
+  id             String       @id @default(cuid())
+  name           String
+  tier           String
+  logoUrl        String?
+  contribution   String
+  contactName    String
+  contactEmail   String
+  status         String       @default("VERIFIED")
+  organizationId String?
+  organization   Organization? @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model SavedCampaign {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, campaignId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title     String
+  content   String
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model AuditLog {
+  id         String      @id @default(cuid())
+  action     String
+  actorId    String?
+  actor      User?       @relation("ActorAuditLogs", fields: [actorId], references: [id])
+  entityType String
+  entityId   String?
+  metadata   String
+  ipAddress  String?
+  createdAt  DateTime    @default(now())
+}

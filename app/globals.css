@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 184 43% 98%;
+  --foreground: 206 33% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 206 33% 14%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 206 33% 14%;
+  --primary: 175 72% 28%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 198 58% 92%;
+  --secondary-foreground: 199 58% 19%;
+  --muted: 190 28% 93%;
+  --muted-foreground: 205 14% 42%;
+  --accent: 154 56% 89%;
+  --accent-foreground: 163 64% 20%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 190 22% 84%;
+  --input: 190 22% 84%;
+  --ring: 176 74% 35%;
+}
+
+.dark {
+  --background: 205 36% 10%;
+  --foreground: 185 31% 94%;
+  --card: 204 35% 14%;
+  --card-foreground: 185 31% 94%;
+  --popover: 204 35% 14%;
+  --popover-foreground: 185 31% 94%;
+  --primary: 174 65% 44%;
+  --primary-foreground: 205 36% 10%;
+  --secondary: 202 31% 22%;
+  --secondary-foreground: 185 31% 94%;
+  --muted: 202 26% 20%;
+  --muted-foreground: 190 15% 72%;
+  --accent: 160 40% 24%;
+  --accent-foreground: 154 56% 89%;
+  --destructive: 0 70% 53%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 202 24% 28%;
+  --input: 202 24% 28%;
+  --ring: 174 65% 44%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(180deg, rgba(235, 250, 248, 0.88) 0%, rgba(248, 252, 253, 1) 44%, rgba(246, 249, 250, 1) 100%),
+    url("https://images.unsplash.com/photo-1509099836639-18ba1795216d?auto=format&fit=crop&w=1800&q=80");
+  background-attachment: fixed;
+  background-size: cover;
+  color: hsl(var(--foreground));
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+.page-shell {
+  @apply container py-8 md:py-12;
+}
+
+.section-title {
+  @apply text-2xl font-semibold tracking-normal text-slate-950 md:text-3xl;
+}
+
+.section-lead {
+  @apply mt-3 max-w-3xl text-base leading-7 text-slate-600;
+}
+
+.focus-ring {
+  @apply outline-none ring-offset-2 ring-offset-background focus-visible:ring-2 focus-visible:ring-ring;
+}
+
+.table-wrap {
+  @apply overflow-x-auto rounded-lg border bg-white;
+}
+
+.form-input {
+  @apply focus-ring w-full rounded-md border bg-white px-3 py-2 text-sm text-slate-900 placeholder:text-slate-400;
+}
+
+.form-label {
+  @apply text-sm font-medium text-slate-700;
+}
+
+.status-dot {
+  @apply inline-block h-2 w-2 rounded-full;
+}
