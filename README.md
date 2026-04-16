@@ -227,7 +227,7 @@ Tài khoản demo:
 
 | Vai trò | Email | Mật khẩu |
 |---|---|---|
-| Admin | admin@opencharity.vn | 123456 |
+| Admin | 24521720@gm.uit.edu.vn | 123456 |
 | Donor | donor@opencharity.vn | 123456 |
 | Charity organization | charity@opencharity.vn | 123456 |
 | Partner | partner@opencharity.vn | 123456 |
