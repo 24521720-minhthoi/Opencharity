@@ -330,19 +330,8 @@ npm run db:seed
 5. Mở `/admin/audit` để chứng minh governance.
 6. Mở `/admin/reports` để kết luận bằng checklist thuyết trình.
 
-## 13. Điểm Nên Nhấn Mạnh Với Giảng Viên
 
-- Đây là website chạy thật, không phải mockup.
-- Có dữ liệu seed và luồng nghiệp vụ thay đổi trạng thái thật.
-- Có logic e-commerce: listing, detail, checkout, transaction, receipt, reconciliation.
-- Có logic quản trị dự án: stakeholder, workflow, role, approval, status, dashboard, KPI.
-- Có logic thiện nguyện minh bạch: fund allocation, evidence update, transparency score, audit trail.
-- Có RBAC rõ ràng theo 4 vai trò.
-- Có khả năng mở rộng: SQLite local, Prisma schema có thể chuyển PostgreSQL.
-- Có fake payment hợp lý, đủ cho demo môn học mà không phụ thuộc cổng thanh toán thật.
-- Có admin console để hội đồng thấy đây là nền tảng vận hành, không chỉ là trang giới thiệu.
-
-## 14. Hạn Chế Và Hướng Phát Triển
+## 13. Hạn Chế Và Hướng Phát Triển
 
 - Chưa có upload file thật; hiện dùng evidence URL.
 - Chưa gửi email thật; hiện mô phỏng notification.
