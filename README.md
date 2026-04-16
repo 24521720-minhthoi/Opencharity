@@ -6,14 +6,14 @@ GVHD: ThS. Huỳnh Đức Huy
 
 Thành viên:
 
-| Họ tên | MSSV |
-|---|---|
-| Nguyễn Minh Thời | 24521720 |
-| Nguyễn Văn Gia Bảo | 24520176 |
-| Lê Hiếu Huy | 24520666 |
-| Bùi Quốc Trung | 24521872 |
-| Lê Văn Hoàng | 24520545 |
-| Lưu Nhật Quang | 24521496 |
+| Họ tên | MSSV | Vai trò |
+|---|---|---|
+| Nguyễn Minh Thời | 24521720 | Nhóm trưởng |
+| Nguyễn Văn Gia Bảo | 24520176 | Thành viên |
+| Lê Hiếu Huy | 24520666 | Thành viên |
+| Bùi Quốc Trung | 24521872 | Thành viên |
+| Lê Văn Hoàng | 24520545 | Thành viên |
+| Lưu Nhật Quang | 24521496 | Thành viên |
 
 ## 1. Product Interpretation
 
