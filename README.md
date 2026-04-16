@@ -1,7 +1,8 @@
 # OpenCharity - Website demo thương mại điện tử thiện nguyện minh bạch
 
 Đồ án môn **Quản trị dự án thương mại điện tử**  
-Lớp: **IS207.Q22**
+Lớp: **EC208.Q21**
+GVHD: ThS. Huỳnh Đức Huy
 
 Thành viên:
 
