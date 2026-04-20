@@ -1,6 +1,6 @@
 # OpenCharity - Nền tảng Gây quỹ & Từ thiện Minh bạch
 
-Prototype website học thuật theo báo cáo đồ án: **OpenCharity – nền tảng thương mại điện tử thiện nguyện minh bạch theo mô hình B2B2C**.
+Prototype website báo cáo đồ án: **OpenCharity – nền tảng thương mại điện tử thiện nguyện minh bạch theo mô hình B2B2C**.
 
 Đồ án môn **Quản trị dự án thương mại điện tử**  
 Lớp: **EC208.Q21**  
