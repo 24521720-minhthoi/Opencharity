@@ -91,8 +91,6 @@ Mô hình B2B2C gồm bốn stakeholder:
 
 ## 2. Các giả định bổ sung
 
-Các giả định dưới đây chỉ để hoàn thiện prototype khi báo cáo chưa nêu chi tiết:
-
 - Payment sandbox được mô phỏng bằng API nội bộ, provider mặc định là `MoMo Sandbox`, không gọi gateway thật.
 - Upload file thật được thay bằng URL ảnh minh chứng để demo ổn định trên local.
 - Tracking giao nhận là near real-time qua API refresh/action, không dùng GPS thật.
@@ -415,8 +413,7 @@ Checklist cần chạy sau khi bật MongoDB:
 - `/transparency` hiển thị payment, POD, audit log.
 - RBAC chặn donor vào `/admin`, supplier vào `/organization`.
 
-## 12. Demo script bảo vệ đồ án
-
+## 12. Hướng dẫn Demo 
 ### Script mở đầu
 
 "OpenCharity không phải website bán hàng thông thường và cũng không phải trang quyên tiền trực tiếp. Đây là charity marketplace theo mô hình B2B2C, trong đó donor tài trợ vật phẩm, supplier giao hàng trực tiếp, tổ chức upload POD và admin xác thực minh bạch."
@@ -457,7 +454,7 @@ Checklist cần chạy sau khi bật MongoDB:
 5. Mở `/transparency`.
 6. Chỉ ra payment sandbox, POD công khai, chart, audit trail và dữ liệu đối soát.
 
-## 13. Điểm nhấn với giảng viên
+## 13. Điểm nhấn
 
 - Prototype chạy thật, có frontend, backend và MongoDB.
 - Bám mô hình B2B2C từ báo cáo.
